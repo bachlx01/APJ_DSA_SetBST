@@ -47,4 +47,20 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
             inOder(root.right);
         }
     }
+
+    public boolean search(E e) {
+        boolean search = false;
+        TreeNode<E> temp = root;
+        while (temp != null) {
+            if (e.compareTo(temp.value) == 0) {
+                search = true;
+                break;
+            } else if (e.compareTo(temp.value) > 0) {
+                temp = temp.right;
+            } else {
+                temp = temp.left;
+            }
+        }
+        return search;
+    }
 }
